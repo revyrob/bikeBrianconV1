@@ -3,21 +3,6 @@
 <head>
   <% include ../partials/header.ejs %>
 
-   <!-- CSS leaflet javascript reference, needed 
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-
-    <style>
-    #mapid {
-        height: 500px;
-        }
-    </style> -->
-
 </head>
 
 <body>
@@ -32,41 +17,28 @@
     <h1>VTT Serre Chevalier</h1>
     <p>This is a community-based platform for local Serre Chevalier bike trails.</p>
     
-    <!-- <div id="mapid"></div>
-    <script>
-    const mymap = L.map('mapid').setView([51.505, -0.09], 13);
-    </script> -->
-
+    <!--connecting my QGIS map to the server -->
     <a type="button" class="btn btn-lg btn-default" href="/map" ><span class="glyphicon glyphicon-flash"></span> Bike Map</a>
-  
-
   </div>
+</div>
+
 
   <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How you can help </h3>
+<div class="text-center">
+    <div class="">
+      <h3><span class="glyphicon glyphicon-info-sign"></span><a href="/about">About</a></h3>
       <ul>
-        <li>Share your data.  Find out more <a href=""> here.</a></li>
-        <li>Share you expertise.  Ways you <a href=""> help.</li>
+        <p></p>
       </ul>
     </div>
-
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Something New</h3>
+  
+    <div class="text-center">
+      <h3><span class="glyphicon glyphicon-link"></span> How you can help</h3>
       <ul>
-        <li>More info to follow...</li>
-        </ul>
-      </ul>
-
-      <h3><span class="glyphicon glyphicon-link"></span> Other Resources</h3>
-      <ul>
-        <li><a href="">Maps</a></li>
-        <li><a href="">Links</a></li>
-        <li><a href="">Associations</a></li>
+        <p>Be a part of the community and share you data.</p>
+        <p>Find out <a href="/how"> how.</p>
       </ul>
     </div>
-  </div> <!-- row -->
 </div>
 
 
