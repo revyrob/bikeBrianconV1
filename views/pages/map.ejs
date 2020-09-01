@@ -67,6 +67,7 @@
         <script src="data/LeCucumelleTourparles3cols_36.js"></script>
         <script src="data/PuyChirouzan_37.js"></script>
         <script>
+       
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
@@ -82,16 +83,72 @@
               });
             }
         }
+
+
+        //highlight line feature
+        function highlightFeature(e) {
+        var layer = e.target;
+
+            layer
+
+            layer.setStyle({
+            weight: 5,
+            color: '#E114A5',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+        }
+        }
+
+        function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+
+
+            layer.setStyle({
+            weight: 5,
+            color: '#0000ff',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+        }
+        //end highlight line feature
+
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[44.84947200568936,6.152795395202365],[45.0463290887475,7.090380690616228]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        L.control.locate({locateOptions: {maxZoom: 18}}).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
+
+        //map locator 
+        map.locate({setView: true, maxZoom: 16});
+
+        function onLocationFound(e) {
+    var radius = e.accuracy;
+
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("You are here").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+    }
+
+    map.on('locationfound', onLocationFound);
+
+    function onLocationError(e) {
+    alert(e.message);
+    }
+
+    map.on('locationerror', onLocationError);
+
+        // end of geolocator with marker
+
         map.createPane('pane_OpenStreetMap_0');
         map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
         var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
