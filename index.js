@@ -10,6 +10,7 @@ express()
   .get('/map', (req, res) => res.render('pages/map'))
   .get('/about', (req, res) => res.render('pages/index2-about'))
   .get('/how', (req, res) => res.render('pages/how'))
+  .get('/guide', (req, res) => res.render('pages/guide'))
     // .get('/map', (req, res) => res.sendFile(path.join(__dirname + '/views/qgis/map.html')))
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

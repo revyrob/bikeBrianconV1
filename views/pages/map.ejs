@@ -99,7 +99,7 @@
             color: '#E114A5',
             dashArray: '',
             fillOpacity: 0.7
-        });
+            });
 
         if (!L.Browser.ie && !L.Browser.opera) {
         layer.bringToFront();
@@ -134,21 +134,21 @@
         map.locate({setView: true, maxZoom: 16});
 
         function onLocationFound(e) {
-    var radius = e.accuracy;
+        var radius = e.accuracy;
 
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("You are here").openPopup();
+        L.marker(e.latlng).addTo(map)
+        .bindPopup("Vous êtes ici").openPopup();
 
-    L.circle(e.latlng, radius).addTo(map);
-    }
+        L.circle(e.latlng, radius).addTo(map);
+        }
 
-    map.on('locationfound', onLocationFound);
+        map.on('locationfound', onLocationFound);
 
-    function onLocationError(e) {
-    alert(e.message);
-    }
+        function onLocationError(e) {
+        alert(e.message);
+        }
 
-    map.on('locationerror', onLocationError);
+        map.on('locationerror', onLocationError);
 
         // end of geolocator with marker
 
